@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FISSANA · Centre d'Osteopatia · Sarrià-Sant Gervasi</title>
+  <meta name="description" content="Centre d'Osteopatia al cor de Sarrià-Sant Gervasi. Osteopatia estructural, visceral i cranial. Carrer Major de Sarrià 139, Barcelona." />
+  <meta property="og:title" content="FISSANA · Centre d'Osteopatia · Barcelona" />
+  <meta property="og:description" content="Osteopatia i fisioteràpia a Sarrià-Sant Gervasi. Reserva la teva cita." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand:       #3B2A1E;
+      --brand-mid:   #4E3828;
+      --brand-light: #7A5C42;
+      --accent:      #B8845A;
+      --accent-soft: #EDD9C4;
+      --bg:          #FAF8F5;
+      --surface:     #F2EDE6;
+      --muted:       #9A9185;
+      --text:        #1E1A17;
+      --font-head:   'Cormorant Garamond', Georgia, serif;
+      --font-body:   'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); font-weight: 300; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      min-height: 100svh;
+    }
+    .hero-left {
+      background: var(--brand);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3rem 3rem 3rem 3.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: -1px; top: 0;
+      width: 1px; height: 100%;
+      background: rgba(184,132,90,0.3);
+    }
+    .hero-nav { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .hero-nav a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .hero-nav a:hover { color: var(--accent-soft); }
+
+    .hero-title-block {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0 2rem;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    .hero-name {
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1;
+      color: #FAF8F5;
+      letter-spacing: -0.02em;
+    }
+    .hero-name em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent-soft);
+      display: block;
+      font-size: 0.6em;
+      letter-spacing: 0em;
+      margin-top: 0.5rem;
+    }
+    .hero-tagline {
+      margin-top: 2.5rem;
+      font-family: var(--font-head);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+    .hero-cta-group { display: flex; flex-direction: column; gap: 0.75rem; }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.95rem 1.8rem;
+      transition: background 0.25s, transform 0.2s;
+      width: fit-content;
+    }
+    .btn-wa:hover { background: #a0714a; transform: translateY(-1px); }
+    .btn-ghost {
+      color: rgba(255,255,255,0.35);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: rgba(255,255,255,0.7); }
+
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(59,42,30,0.2) 0%, transparent 45%);
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: var(--accent-soft);
+      padding: 2.5rem 6rem;
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      border-top: 1px solid rgba(184,132,90,0.3);
+    }
+    .intro-strip-item { display: flex; align-items: center; gap: 1rem; flex: 1; }
+    .intro-strip-icon {
+      width: 2.5rem; height: 2.5rem;
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: var(--accent);
+    }
+    .intro-strip-text {
+      font-family: var(--font-head);
+      font-size: 1rem; line-height: 1.4;
+      color: #5A3A20;
+    }
+    .intro-strip-divider { width: 1px; height: 3rem; background: rgba(184,132,90,0.4); }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 6rem; }
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--brand);
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; font-weight: 300; }
+
+    /* ── SERVICIOS ── */
+    #servicios { background: var(--bg); }
+    .servicios-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid #DDD8D0;
+    }
+    .servicio-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid #DDD8D0;
+      border-bottom: 1px solid #DDD8D0;
+      transition: background 0.3s;
+    }
+    .servicio-card:nth-child(3n) { border-right: none; }
+    .servicio-card:nth-child(4),
+    .servicio-card:nth-child(5),
+    .servicio-card:nth-child(6) { border-bottom: none; }
+    .servicio-card:hover { background: var(--surface); }
+    .servicio-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: rgba(184,132,90,0.2);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .servicio-name {
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: 1.35rem;
+      color: var(--brand);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+    .servicio-line { width: 2rem; height: 1px; background: var(--accent); margin: 1.25rem 0; }
+    .servicio-desc {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ── ESPAI ── */
+    #espai { background: var(--brand); padding: 0; }
+    .espai-inner {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      min-height: 70vh;
+    }
+    .espai-photos {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 2px;
+    }
+    .espai-photos img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      filter: brightness(0.9);
+      transition: filter 0.3s;
+    }
+    .espai-photos img:hover { filter: brightness(1); }
+    .espai-text {
+      padding: 5rem 5rem 5rem 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .espai-text .section-label { color: var(--accent); }
+    .espai-text .section-title { color: #FAF8F5; }
+    .espai-text .section-title em { color: var(--accent-soft); }
+    .espai-body {
+      margin-top: 2rem;
+      font-family: var(--font-head);
+      font-style: italic;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 360px;
+    }
+    .espai-address {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .espai-address strong {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .espai-address p {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── MAP ── */
+    .map-wrap { filter: grayscale(25%) contrast(1.05); height: 340px; }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+    /* ── HORARIO + CONTACTO ── */
+    #horario { background: var(--surface); }
+    .horario-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .horario-table { width: 100%; }
+    .horario-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid #DDD8D0;
+    }
+    .horario-row:first-child { border-top: 1px solid #DDD8D0; }
+    .horario-dia {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      color: var(--brand);
+      font-weight: 400;
+    }
+    .horario-hora {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .horario-hora.cerrado { color: rgba(154,145,133,0.45); font-style: italic; }
+
+    .contact-block { background: var(--brand); padding: 3rem; }
+    .contact-block .section-label { color: var(--accent); }
+    .contact-title {
+      font-family: var(--font-head);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #FAF8F5;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+    .contact-title em { font-style: italic; color: var(--accent-soft); }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255,255,255,0.07);
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 0.75rem;
+    }
+    .contact-row:hover { background: rgba(255,255,255,0.13); }
+    .contact-row-icon {
+      width: 2rem; height: 2rem;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-row-text {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.05em;
+    }
+    .contact-row-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text);
+      padding: 3rem 6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.05em;
+    }
+    .footer-meta {
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.08em;
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* ── FLOATING WA ── */
+    .wa-float {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 3.25rem; height: 3.25rem;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      z-index: 999;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; grid-template-rows: auto 55vw; }
+      .hero-left { padding: 2.5rem 2rem; }
+      .hero-left::after { display: none; }
+      .hero-title-block { padding: 2.5rem 0 2rem; }
+      .hero-name { font-size: clamp(2.8rem, 9vw, 4rem); }
+
+      .intro-strip { padding: 2rem; flex-direction: column; gap: 1.5rem; }
+      .intro-strip-divider { width: 3rem; height: 1px; }
+
+      section { padding: 4rem 2rem; }
+
+      .servicios-grid { grid-template-columns: 1fr 1fr; }
+      .servicio-card { border-right: none !important; border-bottom: 1px solid #DDD8D0 !important; }
+      .servicio-card:nth-child(odd) { border-right: 1px solid #DDD8D0 !important; }
+
+      .espai-inner { grid-template-columns: 1fr; grid-template-rows: 50vw auto; }
+      .espai-photos { grid-template-rows: 1fr; }
+      .espai-photos img:last-child { display: none; }
+      .espai-text { padding: 3rem 2rem; }
+
+      .horario-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      footer { padding: 2.5rem 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-meta { text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .servicios-grid { grid-template-columns: 1fr; }
+      .servicio-card { border-right: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="hero" id="inici">
+  <div class="hero-left">
+    <nav class="hero-nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#espai">El centro</a>
+      <a href="#horario">Horario</a>
+      <a href="#horario">Contacto</a>
+    </nav>
+
+    <div class="hero-title-block">
+      <p class="hero-eyebrow">Osteopatía · Sarrià-Sant Gervasi · Barcelona</p>
+      <h1 class="hero-name">
+        FISSANA
+        <em>Centre d'Osteopatia</em>
+      </h1>
+      <p class="hero-tagline">Recupera el equilibrio de tu cuerpo con tratamientos especializados y una atención completamente personalizada.</p>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="https://wa.me/34657128479?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20FISSANA." target="_blank" class="btn-wa">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Reservar cita
+      </a>
+      <a href="tel:+34657128479" class="btn-ghost">↓ O llámanos al 657 128 479</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <img src="foto1.png" alt="FISSANA Centre d'Osteopatia — Sarrià-Sant Gervasi" />
+  </div>
+</section>
+
+<!-- ════════════════════ INTRO STRIP ════════════════════ -->
+<div class="intro-strip">
+  <div class="intro-strip-item">
+    <div class="intro-strip-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+    </div>
+    <p class="intro-strip-text">Carrer Major de Sarrià, 139<br>Sarrià-Sant Gervasi, Barcelona</p>
+  </div>
+  <div class="intro-strip-divider"></div>
+  <div class="intro-strip-item">
+    <div class="intro-strip-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    </div>
+    <p class="intro-strip-text">Lunes a viernes 10:00–20:00<br>Sábado y domingo cerrado</p>
+  </div>
+  <div class="intro-strip-divider"></div>
+  <div class="intro-strip-item">
+    <div class="intro-strip-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+    <p class="intro-strip-text">657 128 479<br>WhatsApp disponible</p>
+  </div>
+</div>
+
+<!-- ════════════════════ SERVICIOS ════════════════════ -->
+<section id="servicios">
+  <p class="section-label">Lo que ofrecemos</p>
+  <h2 class="section-title">Nuestros<br><em>tratamientos</em></h2>
+
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="servicio-num">01</div>
+      <h3 class="servicio-name">Osteopatía Estructural</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Evaluación y tratamiento de las disfunciones del sistema músculo-esquelético. Dolores de espalda, cervicales, articulaciones y posturas compensatorias.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">02</div>
+      <h3 class="servicio-name">Osteopatía Visceral</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Tratamiento de los órganos internos y sus tejidos de soporte. Mejora la movilidad visceral y alivia tensiones relacionadas con el sistema digestivo y hormonal.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">03</div>
+      <h3 class="servicio-name">Osteopatía Craneal</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Técnica suave que trabaja sobre los huesos del cráneo y el sacro. Indicada para cefaleas, migrañas, estrés crónico y desequilibrios del sistema nervioso.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">04</div>
+      <h3 class="servicio-name">Fisioterapia</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Tratamiento de lesiones musculares, tendinosas y articulares. Recuperación funcional mediante técnicas manuales, electroterapia y ejercicio terapéutico.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">05</div>
+      <h3 class="servicio-name">Tratamiento Postural</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Análisis y corrección de desequilibrios posturales que generan dolor crónico. Trabajo global para restablecer el equilibrio del cuerpo a largo plazo.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="servicio-num">06</div>
+      <h3 class="servicio-name">Primera Visita</h3>
+      <div class="servicio-line"></div>
+      <p class="servicio-desc">Anamnesis completa, exploración y diagnóstico osteopático. Establecemos juntos el plan de tratamiento más adecuado para tu caso concreto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ EL CENTRE ════════════════════ -->
+<div id="espai">
+  <div class="espai-inner">
+    <div class="espai-photos">
+      <img src="foto2.png" alt="Sala de tratamiento FISSANA" />
+      <img src="foto3.png" alt="Interior del centro" />
+    </div>
+    <div class="espai-text">
+      <p class="section-label">El centro</p>
+      <h2 class="section-title">Un espacio<br><em>para sanar</em></h2>
+      <p class="espai-body">Un entorno cálido y tranquilo en el corazón de Sarrià-Sant Gervasi. Cada detalle está pensado para que te sientas en buenas manos desde el primer momento.</p>
+      <div class="espai-address">
+        <strong>Dirección</strong>
+        <p>Carrer Major de Sarrià, 139<br>Sarrià-Sant Gervasi, 08017 Barcelona</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════ MAP ════════════════════ -->
+<div class="map-wrap">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2992.5!2d2.1215!3d41.4012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCarrer+Major+de+Sarri%C3%A0+139+Barcelona!5e0!3m2!1ses!2ses!4v1"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación FISSANA Centre d'Osteopatia">
+  </iframe>
+</div>
+
+<!-- ════════════════════ HORARIO + CONTACTO ════════════════════ -->
+<section id="horario">
+  <p class="section-label">Cuándo visitarnos</p>
+  <h2 class="section-title">Horario y<br><em>contacto</em></h2>
+
+  <div class="horario-grid">
+    <div>
+      <div class="horario-table">
+        <div class="horario-row"><span class="horario-dia">Lunes</span><span class="horario-hora">10:00 – 20:00</span></div>
+        <div class="horario-row"><span class="horario-dia">Martes</span><span class="horario-hora">10:00 – 20:00</span></div>
+        <div class="horario-row"><span class="horario-dia">Miércoles</span><span class="horario-hora">10:00 – 20:00</span></div>
+        <div class="horario-row"><span class="horario-dia">Jueves</span><span class="horario-hora">10:00 – 20:00</span></div>
+        <div class="horario-row"><span class="horario-dia">Viernes</span><span class="horario-hora">10:00 – 20:00</span></div>
+        <div class="horario-row"><span class="horario-dia">Sábado</span><span class="horario-hora cerrado">Cerrado</span></div>
+        <div class="horario-row"><span class="horario-dia">Domingo</span><span class="horario-hora cerrado">Cerrado</span></div>
+      </div>
+    </div>
+
+    <div id="contacto">
+      <div class="contact-block">
+        <p class="section-label" style="margin-bottom:1rem">Reserva tu sesión</p>
+        <p class="contact-title">Ponte en<br><em>contacto</em></p>
+        <a href="https://wa.me/34657128479?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20FISSANA." target="_blank" class="contact-row">
+          <div class="contact-row-icon" style="background:#25D366">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <span class="contact-row-label">WhatsApp</span>
+            657 128 479
+          </div>
+        </a>
+        <a href="tel:+34657128479" class="contact-row">
+          <div class="contact-row-icon" style="background:var(--brand-light)">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.5 19.79 19.79 0 01.17 1 2 2 0 012.19 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.62-.62a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+          </div>
+          <div class="contact-row-text">
+            <span class="contact-row-label">Teléfono</span>
+            657 128 479
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <p class="footer-name">FISSANA · Centre d'Osteopatia</p>
+  <p class="footer-meta">
+    Carrer Major de Sarrià, 139 · 08017 Barcelona<br>
+    © <span id="year"></span> FISSANA Centre d'Osteopatia
+  </p>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/34657128479?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20en%20FISSANA." target="_blank" class="wa-float" aria-label="WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
